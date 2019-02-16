@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import AppRouter from "./routers/AppRouter";
 
 class App extends Component {
   render() {
-    return <div className="App">my Wallet</div>;
+    return <AppRouter />;
   }
 }
 

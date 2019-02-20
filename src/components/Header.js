@@ -9,7 +9,6 @@ const Header = props => {
         Dashboard
       </NavLink>
       <NavLink to="/create">Create Expanse</NavLink>
-      <NavLink to="/edit">Edit Expense</NavLink>
     </header>
   );
 };

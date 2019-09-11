@@ -1,14 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = props => {
   return (
-    <header>
-      <h1>myWallet</h1>
-      <NavLink to="/" exact>
-        Dashboard
-      </NavLink>
-      <NavLink to="/create">Create Expanse</NavLink>
+    <header className="header">
+      <div className="container">
+        <div className="header__container">
+          <Link className="header__title" to="/" exact>
+            <h1>myWallet</h1>
+          </Link>
+        </div>
+      </div>
     </header>
   );
 };

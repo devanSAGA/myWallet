@@ -66,40 +66,47 @@ class ExpenseForm extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.error ? <p>{this.state.error}</p> : null}
-        <form onSubmit={this.handleSubmit}>
-          <input
-            value={this.state.note}
-            onChange={this.handleNoteChange}
-            placeholder="Enter Expense Title"
-            autoFocus
-          />
-          <input
-            value={this.state.amount}
-            onChange={this.handleAmountChange}
-            placeholder="Enter Amount"
-          />
-          <SingleDatePicker
-            date={this.state.createdAt}
-            onDateChange={this.handleDateChange}
-            focused={this.state.isCalendarFocused}
-            onFocusChange={this.handleCalendarFocusChange}
-            id="ExpenseCreatedAt"
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
-          <textarea
-            type="text"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
-            placeholder="Add Description"
-          />
-          <button type="submit" onClick={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
+        {this.state.error ? (
+          <p className="form__error">{this.state.error}</p>
+        ) : null}
+        <input
+          type="text"
+          className="text-input"
+          value={this.state.note}
+          onChange={this.handleNoteChange}
+          placeholder="Enter Expense Title"
+          autoFocus
+        />
+        <input
+          type="text"
+          className="text-input"
+          value={this.state.amount}
+          onChange={this.handleAmountChange}
+          placeholder="Enter Amount"
+        />
+        <SingleDatePicker
+          date={this.state.createdAt}
+          onDateChange={this.handleDateChange}
+          focused={this.state.isCalendarFocused}
+          onFocusChange={this.handleCalendarFocusChange}
+          id="ExpenseCreatedAt"
+          numberOfMonths={1}
+          isOutsideRange={() => false}
+        />
+        <textarea
+          type="text"
+          className="textarea"
+          value={this.state.description}
+          onChange={this.handleDescriptionChange}
+          placeholder="Add Description"
+        />
+        <div>
+          <button className="button" type="submit" onClick={this.handleSubmit}>
             {this.props.submitButtonText}
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 }

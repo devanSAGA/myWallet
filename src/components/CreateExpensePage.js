@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
-import { addExpense } from "../actions/expenses";
+import { startAddExpenseProcess } from "../actions/expenses";
 
 const CreateExpansePage = props => {
   return (
@@ -15,8 +15,7 @@ const CreateExpansePage = props => {
         <ExpenseForm
           submitButtonText="Create Expense"
           onSubmit={expense => {
-            console.log(expense);
-            props.dispatch(addExpense(expense));
+            props.startAddExpenseProcess(expense);
             props.history.push("/");
           }}
         />
@@ -25,4 +24,11 @@ const CreateExpansePage = props => {
   );
 };
 
-export default connect()(CreateExpansePage);
+const mapDispatchToProps = dispatch => ({
+  startAddExpenseProcess: expense => dispatch(startAddExpenseProcess(expense))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreateExpansePage);

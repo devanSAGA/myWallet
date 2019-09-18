@@ -13,3 +13,38 @@
 .button__secondary {
   background: #888;
 }
+
+.button-text {
+  color: #dbe2ef;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+}
+
+.google-signin-button {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  background-color: #dbe2ef;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.google-signin-button--logo {
+  width: 20px;
+  height: 20px;
+  margin: 0 25px 0 25px;
+}
+
+.google-signin-button--text {
+  border-left: 1px solid #acb2b9;
+  padding-left: 27px;
+  color: #112d4e;
+  font-size: 18px;
+}

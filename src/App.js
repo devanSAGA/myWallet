@@ -1,32 +1,23 @@
 import React, { Component } from "react";
 import AppRouter from "./routers/AppRouter";
 import { Provider } from "react-redux";
+import { firebase } from "./firebase/firebase";
 import configureStore from "./store";
-
+import { login, logout } from "./actions/userAuthentication";
+import { history } from "./routers/AppRouter";
 const store = configureStore();
-
-// store.dispatch(
-//   addExpense({
-//     note: "Water Bill",
-//     amount: 4000,
-//     createdAt: 0
-//   })
-// );
-// store.dispatch(
-//   addExpense({
-//     note: "Rent Bill",
-//     amount: 6000,
-//     createdAt: 0
-//   })
-// );
-// store.dispatch(
-//   addExpense({
-//     note: "Car EMI",
-//     amount: 15000,
-//     createdAt: 0
-//   })
-// );
 class App extends Component {
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        store.dispatch(login(user.uid));
+        history.push("/dashboard");
+      } else {
+        store.dispatch(logout());
+        history.push("/");
+      }
+    });
+  }
   render() {
     return (
       <Provider store={store}>

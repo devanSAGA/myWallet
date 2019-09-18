@@ -1,25 +1,29 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import Header from "../components/Header";
+import { Router, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import Dashboard from "../components/Dashboard";
 import EditExpensePage from "../components/EditExpensePage";
 import CreateExpensePage from "../components/CreateExpensePage";
 import FourOhFour from "../components/FourOhFour";
+import LoginPage from "../components/LoginPage";
+import PrivateRoute from "../components/PrivateRoute";
+import PublicRoute from "../components/PublicRoute";
+
+export const history = createBrowserHistory();
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <div>
-        <Header />
         <Switch>
-          <Route path="/" component={Dashboard} exact />
-          <Route path="/create" component={CreateExpensePage} />
-          <Route path="/edit/:id" component={EditExpensePage} />
+          <PublicRoute path="/" component={LoginPage} exact />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/create" component={CreateExpensePage} />
+          <PrivateRoute path="/edit/:id" component={EditExpensePage} />
           <Route component={FourOhFour} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
 

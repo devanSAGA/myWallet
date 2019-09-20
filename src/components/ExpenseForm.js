@@ -91,7 +91,9 @@ class ExpenseForm extends Component {
           onFocusChange={this.handleCalendarFocusChange}
           id="ExpenseCreatedAt"
           numberOfMonths={1}
-          isOutsideRange={() => false}
+          isOutsideRange={day => moment().diff(day) < 0}
+          hideKeyboardShortcutsPanel={true}
+          readOnly={true}
         />
         <textarea
           type="text"

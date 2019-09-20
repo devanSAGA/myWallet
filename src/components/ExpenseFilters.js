@@ -69,6 +69,7 @@ class ExpenseFilters extends Component {
               numberOfMonths={1}
               isOutsideRange={() => false}
               showClearDates={true}
+              hideKeyboardShortcutsPanel={true}
             />
           </div>
         </div>

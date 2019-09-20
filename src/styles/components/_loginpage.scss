@@ -46,3 +46,43 @@
   justify-content: center;
   align-items: center;
 }
+
+@media only screen and (max-width: 768px) {
+  .login-page-container {
+    flex-direction: column;
+  }
+
+  .left-half,
+  .right-half {
+    width: 100%;
+  }
+
+  .left-half {
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+
+  .right-half {
+    height: 30%;
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .login-page-header,
+  .login-buttons {
+    margin: 0;
+  }
+
+  .login-page-header {
+    margin-bottom: 5%;
+  }
+
+  .main-heading {
+    font-size: 36px;
+  }
+
+  .sub-heading {
+    font-size: 20px;
+  }
+}

@@ -47,7 +47,6 @@ class ExpenseForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log("handle submit called");
     if (!this.state.note || !this.state.amount) {
       this.setState({
         error: "Please fill expense title and amount to submit"

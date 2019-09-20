@@ -13,7 +13,7 @@ class ExpenseFilters extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isCalendarFocused: false
+      isCalendarFocused: null
     };
   }
 

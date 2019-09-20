@@ -6,7 +6,7 @@ const Expense = props => {
   const { note, amount, createdAt, id } = props;
   return (
     <Link className="list-item" to={`/edit/${id}`}>
-      <div className>
+      <div>
         <h4 className="list-item__title">{note}</h4>
         <span className="list-item__subtitle">
           {moment(createdAt).format("MMM Do, YYYY")}
